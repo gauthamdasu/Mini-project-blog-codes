@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+            Django Todo Application
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="container">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default text-left">
+              <div class="panel-body">
+                <h4 contenteditable="true">Hi there, come on, popup the things you want to do. And make sure you do it. &#129304; &#9200; &#127947; &#128074; &#128079;</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>
+          List of todo's
+        </h2>
+
+        <div class="row">      
+          <div class="col-sm-9">
+          {% for todo in list_todo %}        
+            {% if not todo.status %}
+                <div class="well">
+                  <h4>{{ todo.name }}</h4>
+                  <a href="{% url 'mark_as_done' todo.id  %}">Mark as Done  &#9996;</a>  
+                </div>
+            {% endif %}
+          {% endfor %}
+          </div>            
+        </div>
+
+        <h2>
+          Make new ones
+        </h2>
+      </div>
+
+        <div class="col-sm-9">
+          <div class="well">
+            <form method="POST" action="{% url 'new_todo' %}" id="input-text" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <input type="textarea" style="width: 450px;" name="todo-name">
+              <button type="submit" value="Submit" class="btn btn-primary">Make a new one </button>
+            </form>
+          </div>
+        </div>            
+    
+
+    <div class="row">
+      <button onclick="myFunction()">Dark mode on!</button>  
+    </div>
+
+
+  </div>
+  </div>
+</div>
+</body>
+
+<style>
+body {
+  background-color: white;
+  color: black;
+}
+.dark-mode {
+  background-color: black;
+  color: black;
+}
+</style>
+
+<script>
+  function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+  }
+</script>
+</html>
