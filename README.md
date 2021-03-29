@@ -12,3 +12,20 @@ For more detailed explanation, please go through [this](https://medium.com/pytho
 ![screen1](images/screen1.png)
 ![screen2](images/screen2.png)
 The end to end demo of the application is shown in [this](https://www.youtube.com/watch?v=oSHDhhNu6WI) video.
+
+
+2.  #### How to add notifications to a django powered application.
+The idea is simple, to use python-django-notifications-hq package and use them in our django powered application.
+
+A blog has been written in medium explaining how to add to django project and [this](https://medium.com/star-gazers/how-to-add-notifications-to-django-app-74df1dac984e) is the link to the article.
+
+
+Few sample screens of the app are attached here.
+![welcome](images/welcome.png)
+
+![details](images/details.png)
+
+![dropdown](images/dropdown.png)
+
+Any doubts, clarifications, suggestions or improvements, please contact me or leave a comment.
+Thanks, cheers :v:
