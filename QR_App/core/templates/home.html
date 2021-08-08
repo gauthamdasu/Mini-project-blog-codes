@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>    
+    <head>    
+        <title>Simple QR App</title>    
+    </head>    
+  <body>
+
+    <h1>Welcome to the QR app</h1>
+    
+    {% if image %}
+        <h1> Your generated qr code </h1>
+        <a href="data:image/png;base64,{{ image }}" download>
+            <img src="data:image/png;base64,{{ image }}">
+            <button class="btn"><i class="fa fa-download"></i> Download</button>
+        </a>
+    {% endif %}
+        
+    <h2>Enter your url and file name</h2><br>    
+      <div class="qr_input">    
+        <a href="{% url 'home' %}">Home</a>
+
+        <form method="post" action="{% url 'create' %}">
+            {% csrf_token %}
+            <label>Input your url</label>
+            <input type="text" name="url_input" required placeholder="Please enter url">
+            <br>
+            <label>Input qr file name</label>
+            <input type="text" name="qr_name" required placeholder="Please enter qr file name">
+            <input type="submit" value="submit"/>
+          </form>
+        </div>    
+    </body> 
+  <style>
+
+    body{  
+        margin: 0;  
+        padding: 0;  
+        background-color:#6abadeba;  
+        font-family: 'Arial';  
+    }  
+    .qr_input{  
+            width: 382px;  
+            overflow: hidden;  
+            margin: auto;  
+            margin: 20 0 0 450px;  
+            padding: 80px;  
+            background: #23463f;  
+            border-radius: 15px ;  
+              
+    } 
+    h1{
+        text-align: center;         
+        color: #277582;  
+        padding: 20px;  
+    }
+    h2{  
+        text-align: center;  
+        color: #277582;  
+        padding: 20px;  
+    }  
+    label{  
+        color: #08ffd1;  
+        font-size: 17px;  
+    }  
+    #Uname{  
+        width: 300px;  
+        height: 30px;  
+        border: none;  
+        border-radius: 3px;  
+        padding-left: 8px;  
+    }  
+    #Pass{  
+        width: 300px;  
+        height: 30px;  
+        border: none;  
+        border-radius: 3px;  
+        padding-left: 8px;  
+          
+    }  
+    #log{  
+        width: 300px;  
+        height: 30px;  
+        border: none;  
+        border-radius: 17px;  
+        padding-left: 7px;  
+        color: blue;  
+      
+      
+    }  
+    span{  
+        color: white;  
+        font-size: 17px;  
+    }  
+    a{  
+        float: right;  
+        background-color: grey;  
+    }  
+  </style> 
+</html>   
